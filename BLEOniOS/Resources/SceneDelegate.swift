@@ -22,6 +22,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         
         let mainViewController = MainViewController()
+        let formatter = MainViewFormatter()
+        let presenter = MainViewPresenter(controller: mainViewController,
+                                          bleService: BluetoothService.shared,
+                                          formatter: formatter)
+        
+        mainViewController.presenter = presenter
+        
         let navigationController = UINavigationController(rootViewController: mainViewController)
         
         window?.rootViewController = navigationController
