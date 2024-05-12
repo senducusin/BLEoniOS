@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="BLEOniOS" customModuleProvider="target">
+            <connections>
+                <outlet property="refreshButton" destination="Ovk-od-dJm" id="Uqn-lk-Lnh"/>
+                <outlet property="tableView" destination="vuK-bt-2F3" id="dGb-Vb-5b4"/>
+                <outlet property="topDashboardView" destination="tye-xw-gGh" id="JUr-5W-NaH"/>
+                <outlet property="view" destination="iN0-l3-epB" id="hen-BI-L7t"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tye-xw-gGh">
+                    <rect key="frame" x="12" y="71" width="369" height="160"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="160" id="ffh-e3-Ysy"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="vuK-bt-2F3">
+                    <rect key="frame" x="12" y="255" width="369" height="438"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ovk-od-dJm">
+                    <rect key="frame" x="12" y="766" width="369" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="yuH-pc-g2s"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="Button"/>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="vuK-bt-2F3" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="12" id="4mn-ZQ-sHb"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="tye-xw-gGh" secondAttribute="trailing" constant="12" id="7HL-Oy-GAR"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="vuK-bt-2F3" secondAttribute="trailing" constant="12" id="8UF-Fl-XQQ"/>
+                <constraint firstItem="tye-xw-gGh" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="12" id="CYn-CX-NWw"/>
+                <constraint firstItem="Ovk-od-dJm" firstAttribute="top" secondItem="vuK-bt-2F3" secondAttribute="bottom" constant="73" id="Cc1-Vp-kmA"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Ovk-od-dJm" secondAttribute="trailing" constant="12" id="Dlc-lb-Pa7"/>
+                <constraint firstItem="vuK-bt-2F3" firstAttribute="top" secondItem="tye-xw-gGh" secondAttribute="bottom" constant="24" id="Edx-Hz-Z5A"/>
+                <constraint firstItem="tye-xw-gGh" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="12" id="ImQ-Wq-CdE"/>
+                <constraint firstItem="Ovk-od-dJm" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="12" id="UUr-La-uwr"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Ovk-od-dJm" secondAttribute="bottom" constant="12" id="jls-uC-UzR"/>
+            </constraints>
+            <point key="canvasLocation" x="131" y="-11"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
