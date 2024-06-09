@@ -28,14 +28,6 @@ enum LightingMode: Int {
             return "None"
         }
     }
-    
-//    static func getAllCaseStrings() -> [String] {
-//        ["Chase", "Trail", "Fade", "Manual", "None"]
-//    }
-//    
-//    static func getAllCases() -> [LightingMode] {
-//        [.chase, .trail, .fade, .manual, .none]
-//    }
 }
 
 struct BLELightingValue: Codable {

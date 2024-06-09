@@ -35,12 +35,61 @@ struct StringContext {
     }
 }
 
-struct BluetoothContext {
-    static let inputService = CBUUID(string: "50CB2718-83F9-4EFC-B35B-2544BB24D8B6")
-    static let outputService = CBUUID(string: "CD457CC4-F310-4D7B-ADDD-3291067B12EC")
+// MARK: - Device Service
+enum DeviceService: String {
+    case input = "50CB2718-83F9-4EFC-B35B-2544BB24D8B6"
+    case output = "CD457CC4-F310-4D7B-ADDD-3291067B12EC"
+}
+
+extension DeviceService {
+    func getUUID() -> CBUUID {
+        CBUUID(string: self.rawValue)
+    }
     
-    static let rotaryPositionCharacteristic = CBUUID(string: "961C5B3C-4E94-4CEE-84B3-E84A5D036950")
-    static let buttonCharacteristic = CBUUID(string: "28E0C7B8-95E4-4C69-939E-0A7BF68606C5")
-    static let colorCharacteristic = CBUUID(string: "D0DF504E-B877-427C-B014-F22DDEFD387A")
-    static let modeCharacteristic = CBUUID(string: "F4F7790A-6C50-40C6-9A75-37A0F78A6FB3")
+    func getName() -> String {
+        switch self {
+        case .input:
+            return StringContext.inputService
+            
+        case .output:
+            return StringContext.outputService
+        }
+    }
+}
+
+// MARK: - Device Characteristic
+enum DeviceCharacteristic: String {
+    case rotaryPosition = "961C5B3C-4E94-4CEE-84B3-E84A5D036950"
+    case color = "D0DF504E-B877-427C-B014-F22DDEFD387A"
+    case mode = "F4F7790A-6C50-40C6-9A75-37A0F78A6FB3"
+}
+
+extension DeviceCharacteristic {
+    func getUUID() -> CBUUID {
+        CBUUID(string: self.rawValue)
+    }
+    
+    func getDescription() -> String {
+        switch self {
+        case .rotaryPosition:
+            return "Rotary Position"
+        case .color:
+            return "Color"
+        case .mode:
+            return "Lighting Mode"
+        }
+    }
+    
+    static func getInputCharacteristics() -> [CBUUID] {
+        [
+            DeviceCharacteristic.rotaryPosition.getUUID()
+        ]
+    }
+    
+    static func getOutputCharacteristics() -> [CBUUID] {
+        [
+            DeviceCharacteristic.color.getUUID(),
+            DeviceCharacteristic.mode.getUUID()
+        ]
+    }
 }

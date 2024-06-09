@@ -24,9 +24,6 @@ class BluetoothService: NSObject, BluetoothServiceProtocol, ObservableObject {
     var delegate: BluetoothServiceDelegate?
     
     var peripheralStatus: ConnectionStatus = .disconnected
-    var rotaryPositionValue = 0
-    var lightingMode = LightingMode.none
-    var lightColor: String?
     
     var shouldConnect: Bool = true {
         didSet {
@@ -36,8 +33,8 @@ class BluetoothService: NSObject, BluetoothServiceProtocol, ObservableObject {
     
     override init() {
         super.init()
-        services = [BluetoothContext.inputService,
-                    BluetoothContext.outputService]
+        services = [DeviceService.input.getUUID(),
+                    DeviceService.output.getUUID()]
         centralManager = CBCentralManager(delegate: self, queue: nil)
     }
 }
@@ -88,13 +85,12 @@ extension BluetoothService: CBPeripheralDelegate {
         guard let services = peripheral.services else { return }
         
         for service in services {
-            if service.uuid == BluetoothContext.inputService {
-                peripheral.discoverCharacteristics([BluetoothContext.rotaryPositionCharacteristic,
-                                                    BluetoothContext.modeCharacteristic],
+            if service.uuid == DeviceService.input.getUUID() {
+                peripheral.discoverCharacteristics(DeviceCharacteristic.getInputCharacteristics(),
                                                    for: service)
-            } else if service.uuid == BluetoothContext.outputService {
-                peripheral.discoverCharacteristics([BluetoothContext.colorCharacteristic,
-                                                    BluetoothContext.modeCharacteristic],
+                
+            } else if service.uuid == DeviceService.output.getUUID() {
+                peripheral.discoverCharacteristics(DeviceCharacteristic.getOutputCharacteristics(),
                                                    for: service)
             }
         }
@@ -103,39 +99,38 @@ extension BluetoothService: CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral,
                     didDiscoverCharacteristicsFor service:
                     CBService, error: Error?) {
-        guard let characteristics = service.characteristics else { return }
+        guard let characteristics = service.characteristics,
+              let discoveredService = DeviceService(rawValue: service.uuid.uuidString)
+        else { return }
         
-        let serviceName = getServiceName(using: service.uuid)
+        let serviceName = discoveredService.getName()
         let serviceData = ServiceData(description: serviceName, cbService: service)
         
         for characteristic in characteristics {
-            if characteristic.uuid == BluetoothContext.rotaryPositionCharacteristic {
-                characteristicData.append(CharacteristicData(cbCharacteristic: characteristic,
-                                                             cbService: serviceData,
-                                                             description: "Rotary Position",
-                                                             isReadOnly: false,
-                                                             willNotify: true))
-                
-            } else if characteristic.uuid == BluetoothContext.colorCharacteristic {
-                characteristicData.append(CharacteristicData(cbCharacteristic: characteristic,
-                                                             cbService: serviceData,
-                                                             description: "Color",
-                                                             isReadOnly: true,
-                                                             willNotify: false))
-                
-            } else if characteristic.uuid == BluetoothContext.modeCharacteristic {
-                characteristicData.append(CharacteristicData(cbCharacteristic: characteristic,
-                                                             cbService: serviceData,
-                                                             description: "Lighting Mode",
-                                                             isReadOnly: false,
-                                                             willNotify: true))
+            guard let deviceCharacteristic = DeviceCharacteristic(rawValue: characteristic.uuid.uuidString)
+            else { continue }
+            
+            var shouldNotify = false
+            var shouldReadOnly = false
+            
+            if characteristic.properties.contains(.notify) {
+                shouldNotify.toggle()
             }
             
+            if !characteristic.properties.contains(.write) {
+                shouldReadOnly.toggle()
+            }
+            
+            let discoveredCharacteristic = CharacteristicData(cbCharacteristic: characteristic,
+                                                              cbService: serviceData,
+                                                              description: deviceCharacteristic.getDescription(),
+                                                              isReadOnly: shouldReadOnly,
+                                                              willNotify: shouldNotify)
+            
+            characteristicData.append(discoveredCharacteristic)
+            
             peripheral.readValue(for: characteristic)
-            
-            guard characteristic.uuid != BluetoothContext.colorCharacteristic else { continue }
-            
-            peripheral.setNotifyValue(true, for: characteristic)
+            peripheral.setNotifyValue(shouldNotify, for: characteristic)
         }
     }
     
@@ -143,54 +138,14 @@ extension BluetoothService: CBPeripheralDelegate {
         guard let data = characteristic.value
         else { return }
         
-        if characteristic.uuid == BluetoothContext.rotaryPositionCharacteristic {
-            decode(data) { [weak self] (bleData: BLERotaryPositionValue?) in
-                guard let rotaryPosition = bleData?.value,
-                      let self else { return }
-                
-                print(rotaryPosition)
-                self.rotaryPositionValue = rotaryPosition
-                
-                self.characteristicData = self.characteristicData.map({
-                    if $0.id == characteristic.uuid {
-                        $0.value = String(rotaryPosition)
-                    }
-                    
-                    return $0
-                })
-            }
+        if characteristic.uuid == DeviceCharacteristic.rotaryPosition.getUUID() {
+            decodeRotaryPositionValue(of: characteristic, from: data)
             
-        } else if characteristic.uuid == BluetoothContext.colorCharacteristic {
-            decode(data) { [weak self] (bleData: ColorValue?) in
-                guard let color = bleData?.getStringValue(),
-                      let self else { return }
-                
-                self.lightColor = color
-                
-                self.characteristicData = self.characteristicData.map({
-                    if $0.id == characteristic.uuid {
-                        $0.value = color
-                    }
-                    
-                    return $0
-                })
-            }
+        } else if characteristic.uuid == DeviceCharacteristic.color.getUUID() {
+            decodeDeviceColorValue(of: characteristic, from: data)
             
-        } else if characteristic.uuid == BluetoothContext.modeCharacteristic {
-            decode(data) { [weak self] (bleData: BLELightingValue?) in
-                guard let activeMode = bleData?.currentMode,
-                      let self else { return }
-                
-                self.lightingMode = activeMode
-                
-                self.characteristicData = self.characteristicData.map({
-                    if $0.id == characteristic.uuid {
-                        $0.value = activeMode.getStringValue()
-                    }
-                    
-                    return $0
-                })
-            }
+        } else if characteristic.uuid == DeviceCharacteristic.mode.getUUID() {
+            decodeDeviceModeValue(of: characteristic, from: data)
         }
         
         delegate?.updateCharacteristicData(with: characteristicData)
@@ -199,6 +154,43 @@ extension BluetoothService: CBPeripheralDelegate {
 
 // MARK: - Private Helpers
 extension BluetoothService {
+    private func decodeRotaryPositionValue(of characteristic: CBCharacteristic, from data: Data) {
+        decode(data) { [weak self] (bleData: BLERotaryPositionValue?) in
+            guard let rotaryPosition = bleData?.value,
+                  let self else { return }
+            
+            setCharacteristic(value: String(rotaryPosition), of: characteristic)
+        }
+    }
+    
+    private func decodeDeviceColorValue(of characteristic: CBCharacteristic, from data: Data) {
+        decode(data) { [weak self] (bleData: ColorValue?) in
+            guard let color = bleData?.getStringValue(),
+                  let self else { return }
+            
+            setCharacteristic(value: color, of: characteristic)
+        }
+    }
+    
+    private func decodeDeviceModeValue(of characteristic: CBCharacteristic, from data: Data) {
+        decode(data) { [weak self] (bleData: BLELightingValue?) in
+            guard let activeMode = bleData?.currentMode,
+                  let self else { return }
+            
+            setCharacteristic(value: activeMode.getStringValue(), of: characteristic)
+        }
+    }
+    
+    private func setCharacteristic(value: String, of characteristic: CBCharacteristic) {
+        self.characteristicData = self.characteristicData.map({
+            if $0.id == characteristic.uuid {
+                $0.value = value
+            }
+            
+            return $0
+        })
+    }
+    
     private func handleConnection() {
         if shouldConnect {
             shouldScanForPeripherals()
@@ -235,7 +227,7 @@ extension BluetoothService {
         
         let encoder = JSONEncoder()
         
-        if characteristic.uuidString == BluetoothContext.modeCharacteristic.uuidString {
+        if characteristic.uuidString == DeviceCharacteristic.mode.rawValue {
             guard let value = value as? LightingMode else { return }
             
             let model = BLELightingValue(value: value.rawValue)
@@ -244,19 +236,6 @@ extension BluetoothService {
                 connectedPeripheral.writeValue(payload, for: characteristic.cbCharacteristic,
                                                type: .withResponse)
             }
-        }
-    }
-    
-    private func getServiceName(using uuid: CBUUID) -> String {
-        switch uuid.uuidString {
-        case BluetoothContext.inputService.uuidString:
-            return StringContext.inputService
-            
-        case BluetoothContext.outputService.uuidString:
-            return StringContext.outputService
-            
-        default:
-            return uuid.uuidString
         }
     }
 }

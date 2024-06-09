@@ -18,11 +18,9 @@ struct CharacteristicViewUIModel {
 extension CharacteristicViewUIModel {
     var displayValue: String {
         switch characteristicUuidString {
-//        case BluetoothContext.rotaryPositionCharacteristic.uuidString:
-//        case BluetoothContext.buttonCharacteristic.uuidString:
-        case BluetoothContext.colorCharacteristic.uuidString:
+        case DeviceCharacteristic.color.rawValue:
             return getColorDisplayValue()
-//        case BluetoothContext.modeCharacteristic.uuidString:
+            
         default:
             return value
         }
@@ -30,13 +28,13 @@ extension CharacteristicViewUIModel {
     
     var imageName: String {
         switch characteristicUuidString {
-        case BluetoothContext.rotaryPositionCharacteristic.uuidString:
+        case DeviceCharacteristic.rotaryPosition.rawValue:
             return StringContext.ImageName.rotary
             
-        case BluetoothContext.colorCharacteristic.uuidString:
+        case DeviceCharacteristic.color.rawValue:
             return StringContext.ImageName.color
             
-        case BluetoothContext.modeCharacteristic.uuidString:
+        case DeviceCharacteristic.mode.rawValue:
             return StringContext.ImageName.lightMode
             
         default:
@@ -46,9 +44,9 @@ extension CharacteristicViewUIModel {
     
     var serviceName: String {
         switch serviceUuidString {
-        case BluetoothContext.inputService.uuidString:
+        case DeviceService.input.rawValue:
             return StringContext.inputService
-        case BluetoothContext.outputService.uuidString:
+        case DeviceService.output.rawValue:
             return StringContext.outputService
         default:
             return serviceUuidString
@@ -62,7 +60,7 @@ extension CharacteristicViewUIModel {
             }
     
         if rgb.count == 3 {
-            return "R: \(rgb[0]), G: \(rgb[1]), B: \(rgb[2])"
+            return "(R: \(rgb[0]), G: \(rgb[1]), B: \(rgb[2]))"
         }
         
         return value
