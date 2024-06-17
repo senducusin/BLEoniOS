@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		45070E9D2BEFEA73001F57D7 /* CharacteristicViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45070E9C2BEFEA73001F57D7 /* CharacteristicViewCell.xib */; };
-		45070EA02BEFF28C001F57D7 /* ColorValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45070E9F2BEFF28C001F57D7 /* ColorValue.swift */; };
-		45070EA32BEFF2DB001F57D7 /* RotaryPositionValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45070EA22BEFF2DB001F57D7 /* RotaryPositionValue.swift */; };
-		45070EA52BEFF33D001F57D7 /* LightingMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45070EA42BEFF33D001F57D7 /* LightingMode.swift */; };
 		45070EA72BEFF3E3001F57D7 /* ConnectionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45070EA62BEFF3E3001F57D7 /* ConnectionStatus.swift */; };
 		45070EAA2BEFF412001F57D7 /* BluetoothService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45070EA92BEFF412001F57D7 /* BluetoothService.swift */; };
 		45070EAC2BEFF694001F57D7 /* CharacteristicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45070EAB2BEFF694001F57D7 /* CharacteristicModel.swift */; };
@@ -33,9 +30,6 @@
 
 /* Begin PBXFileReference section */
 		45070E9C2BEFEA73001F57D7 /* CharacteristicViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacteristicViewCell.xib; sourceTree = "<group>"; };
-		45070E9F2BEFF28C001F57D7 /* ColorValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorValue.swift; sourceTree = "<group>"; };
-		45070EA22BEFF2DB001F57D7 /* RotaryPositionValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotaryPositionValue.swift; sourceTree = "<group>"; };
-		45070EA42BEFF33D001F57D7 /* LightingMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightingMode.swift; sourceTree = "<group>"; };
 		45070EA62BEFF3E3001F57D7 /* ConnectionStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionStatus.swift; sourceTree = "<group>"; };
 		45070EA92BEFF412001F57D7 /* BluetoothService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothService.swift; sourceTree = "<group>"; };
 		45070EAB2BEFF694001F57D7 /* CharacteristicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacteristicModel.swift; sourceTree = "<group>"; };
@@ -72,9 +66,7 @@
 		45070E9E2BEFF250001F57D7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				45070E9F2BEFF28C001F57D7 /* ColorValue.swift */,
-				45070EA22BEFF2DB001F57D7 /* RotaryPositionValue.swift */,
-				45070EA42BEFF33D001F57D7 /* LightingMode.swift */,
+				453531F02C19E35600AE3170 /* BLEResponse.swift */,
 				45070EA62BEFF3E3001F57D7 /* ConnectionStatus.swift */,
 				45070EAB2BEFF694001F57D7 /* CharacteristicModel.swift */,
 				4568E9E42BF1485100BFF157 /* ServiceData.swift */,
@@ -258,7 +250,6 @@
 				45EE41FF2BF154DD0009D108 /* CharacteristicDetailView.swift in Sources */,
 				451995852BE4205900CEE3BA /* Constants.swift in Sources */,
 				45070EB02BF00844001F57D7 /* MainViewFormatter.swift in Sources */,
-				45070EA02BEFF28C001F57D7 /* ColorValue.swift in Sources */,
 				4519957E2BE4085E00CEE3BA /* MainViewController.swift in Sources */,
 				4568E9E52BF1485100BFF157 /* ServiceData.swift in Sources */,
 				45070EAC2BEFF694001F57D7 /* CharacteristicModel.swift in Sources */,
@@ -266,7 +257,6 @@
 				45070EAE2BEFFEAC001F57D7 /* MainViewPresenter.swift in Sources */,
 				45070EB32BF0088C001F57D7 /* CharacteristicViewUIModel.swift in Sources */,
 				4519956B2BE406C300CEE3BA /* SceneDelegate.swift in Sources */,
-				45070EA52BEFF33D001F57D7 /* LightingMode.swift in Sources */,
 				451995832BE4131300CEE3BA /* Extensions.swift in Sources */,
 				45070EA32BEFF2DB001F57D7 /* RotaryPositionValue.swift in Sources */,
 			);
