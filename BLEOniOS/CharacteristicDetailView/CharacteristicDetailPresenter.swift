@@ -85,7 +85,7 @@ extension CharacteristicDetailPresenter {
     
     @objc func updateCharacteristic(notification: NSNotification) {
         guard let dictionary = notification.userInfo as? NSDictionary,
-              let data = dictionary["data"] as? [CharacteristicData],
+              let data = dictionary[StringContext.Key.data] as? [CharacteristicData],
               let currentModel = data.filter({ $0.id == self.model.id }).first
         else { return }
         

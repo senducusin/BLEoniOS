@@ -26,10 +26,27 @@ struct StringContext {
     static let outputService = "Output"
     static let trueStatement = "True"
     static let falseStatement = "False"
+    static let service = "Service:"
+    static let valueColon = "Value:"
+    static let propertyRead = "READ"
+    static let propertyNotify = "NOTIFY"
+    static let propertyWrite = "WRITE"
+    static let values = "VALUES"
+    static let value = "VALUE"
+    static let readNotifiedValues = "READ / NOTIFIED VALUES"
+    static let readValues = "READ VALUES"
+    static let writeValue = "WRITE VALUE"
+    static let properties = "PROPERTIES"
+    static let setValue = "Set Value"
+    
+    static let characteristicsFound = "Characteristics Found"
     
     struct Separator {
         static let dash: Character = "-"
         static let comma: Character = ","
+        static let space = " "
+        static let slash = "/"
+        static let empty = ""
     }
     
     struct ImageName {
@@ -37,6 +54,23 @@ struct StringContext {
         static let rotary = "arrow.triangle.2.circlepath"
         static let color = "paintpalette"
         static let lightMode = "light.max"
+    }
+    
+    struct Key {
+        static let data = "data"
+        static let localName = "kCBAdvDataLocalName"
+        static let textColor = "textColor"
+    }
+    
+    struct Template {
+        static let rgb = "(R: {{R}}, G: {{G}}, B: {{B}})"
+        static let red = "{{R}}"
+        static let green = "{{G}"
+        static let blue = "{{B}}"
+        
+        static let servicesFound = "{{N}} Services Found"
+        static let characteristicsFound = "{{N}} Characteristics Found"
+        static let number = "{{N}}"
     }
 }
 

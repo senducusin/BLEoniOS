@@ -26,13 +26,11 @@ class WriteView: UIViewController {
         view.backgroundColor = ColorContext.lightBlue
         upperBackgroundView.backgroundColor = ColorContext.lightGray
         
-        if let description = presenter?.description {
-            title = "Set Value"
-        }
+        title = StringContext.setValue
         
         modePicker.delegate = self
         modePicker.dataSource = self
-        modePicker.setValue(ColorContext.darkText, forKey: "textColor")
+        modePicker.setValue(ColorContext.darkText, forKey: StringContext.Key.textColor)
         
         writeCTA.setTitleColor(ColorContext.lightBlue, for: .normal)
         writeCTA.setTitleColor(ColorContext.lightGray, for: .disabled)

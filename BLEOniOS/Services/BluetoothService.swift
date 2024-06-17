@@ -156,7 +156,7 @@ extension BluetoothService: CBPeripheralDelegate {
         delegate?.updateCharacteristicData(with: characteristicData)
         NotificationCenter.default.post(name: .updateCharacteristics,
                                         object: nil,
-                                        userInfo: ["data": characteristicData])
+                                        userInfo: [StringContext.Key.data: characteristicData])
     }
     
     func updateValueOf(_ deviceCharacteristic: DeviceCharacteristic, with value: String) {
@@ -179,7 +179,7 @@ extension BluetoothService: CBPeripheralDelegate {
 extension BluetoothService {
     private func getPeripheralName(peripheral: CBPeripheral,
                                    advertisementData: [String : Any]) {
-        let peripheralLocalName_advertisement = ((advertisementData as NSDictionary).value(forKey: "kCBAdvDataLocalName")) as? String
+        let peripheralLocalName_advertisement = ((advertisementData as NSDictionary).value(forKey: StringContext.Key.localName)) as? String
         self.peripheral = PeripheralIdentity(localName: peripheralLocalName_advertisement, name: peripheral.name)
     }
     

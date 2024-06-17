@@ -31,14 +31,14 @@ class CharacteristicFormatter {
         let propertiesTitle = getPropertiesTitleRow()
         rows.append(propertiesTitle)
         
-        var properties = ["READ"]
+        var properties = [StringContext.propertyRead]
         
         if data.willNotify {
-            properties.append("NOTIFY")
+            properties.append(StringContext.propertyNotify)
         }
         
         if !data.isReadOnly {
-            properties.append("WRITE")
+            properties.append(StringContext.propertyWrite)
         }
         
         for property in properties {
@@ -52,20 +52,22 @@ class CharacteristicFormatter {
     
     static private func getReadTitleRow(with data: CharacteristicData) -> CharacteristicDetailRow {
         let title = data.willNotify
-        ? "READ / NOTIFIED VALUES"
-        : "READ VALUES"
+        ? StringContext.readNotifiedValues
+        : StringContext.readValues
         
         return CharacteristicDetailRow.topTitleRow(model: title)
     }
     
     static private func getWriteTitleRow() -> CharacteristicDetailRow {
-        let title = "WRITE VALUE"
+        let title = StringContext.writeValue
         
         return CharacteristicDetailRow.topTitleRow(model: title)
     }
 
     static private func getWriteRow() -> CharacteristicDetailRow {
-        let model = CommonDetailRowUIModel(title: "WRITE VALUE", value: "", shouldShowSeparator: false)
+        let model = CommonDetailRowUIModel(title: StringContext.writeValue,
+                                           value: StringContext.Separator.space,
+                                           shouldShowSeparator: false)
         
         return CharacteristicDetailRow.writeRow(model: model)
     }
@@ -79,14 +81,14 @@ class CharacteristicFormatter {
         
         let response = getJSONResponse(using: data)
         
-        let uiModel = CommonDetailRowUIModel(title: "",
-                                             value: response, 
+        let uiModel = CommonDetailRowUIModel(title: StringContext.Separator.empty,
+                                             value: response,
                                              shouldShowSeparator: false)
         return CharacteristicDetailRow.staticRow(model: uiModel)
     }
     
     static private func getPropertiesTitleRow() -> CharacteristicDetailRow {
-        let title = "PROPERTIES"
+        let title = StringContext.properties
         
         return CharacteristicDetailRow.topTitleRow(model: title)
     }
@@ -112,6 +114,6 @@ extension CharacteristicFormatter {
             dump("DEBUG: \(error)")
         }
         
-        return ""
+        return StringContext.Separator.empty
     }
 }

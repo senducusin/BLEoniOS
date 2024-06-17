@@ -60,7 +60,10 @@ extension CharacteristicViewUIModel {
             }
     
         if rgb.count == 3 {
-            return "(R: \(rgb[0]), G: \(rgb[1]), B: \(rgb[2]))"
+            return StringContext.Template.rgb
+                .replacingOccurrences(of: StringContext.Template.red, with: rgb[0])
+                .replacingOccurrences(of: StringContext.Template.green, with: rgb[1])
+                .replacingOccurrences(of: StringContext.Template.blue, with: rgb[2])
         }
         
         return value

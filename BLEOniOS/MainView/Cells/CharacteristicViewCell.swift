@@ -41,8 +41,14 @@ class CharacteristicViewCell: UITableViewCell {
         iconImageView.image = UIImage(systemName: model.imageName)
         
         headingLabel.text = model.characteristicName
-        serviceLabel.text = "Service: \(model.serviceName)"
-        valueLabel.text = "Value: \(model.displayValue)"
+        
+        serviceLabel.text = [StringContext.service,
+                             model.serviceName]
+            .joined(separator: StringContext.Separator.space)
+        
+        valueLabel.text = [StringContext.valueColon,
+                           model.displayValue]
+            .joined(separator: StringContext.Separator.space)
         
         separatorView.isHidden = model.isLast
     }

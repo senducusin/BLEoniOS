@@ -172,8 +172,12 @@ extension MainViewController: MainViewControllerProtocol {
     func updateSections(with model: PeripheralUIModel) {
         peripheralNameLabel.text = model.peripheralIdentity?.name
         peripheralLocalNameLabel.text = model.peripheralIdentity?.localName
-        servicesLabel.text = "\(model.servicesCount) Services Found"
-        characteristicsLabel.text = "\(model.characteristicRows.count) Characteristics Found"
+        
+        servicesLabel.text = StringContext.Template.servicesFound
+            .replacingOccurrences(of: StringContext.Template.number, with: String(model.servicesCount))
+        
+        characteristicsLabel.text = StringContext.Template.characteristicsFound
+            .replacingOccurrences(of: StringContext.Template.number, with: String(model.characteristicRows.count))
         
         self.rows = model.characteristicRows
         tableView.reloadData()
