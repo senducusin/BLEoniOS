@@ -23,9 +23,27 @@
 		451995832BE4131300CEE3BA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451995822BE4131300CEE3BA /* Extensions.swift */; };
 		451995852BE4205900CEE3BA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451995842BE4205900CEE3BA /* Constants.swift */; };
 		451995892BE4256300CEE3BA /* CharacteristicViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451995882BE4256300CEE3BA /* CharacteristicViewCell.swift */; };
+		453531DE2C161C1100AE3170 /* CharacteristicDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453531DD2C161C1100AE3170 /* CharacteristicDetailCell.swift */; };
+		453531E02C161CBC00AE3170 /* CharacteristicDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 453531DF2C161CBC00AE3170 /* CharacteristicDetailCell.xib */; };
+		453531E32C161D3200AE3170 /* CharacteristicDetailRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453531E22C161D3200AE3170 /* CharacteristicDetailRow.swift */; };
+		453531E52C16263B00AE3170 /* CharacteristicDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453531E42C16263B00AE3170 /* CharacteristicDetailPresenter.swift */; };
+		453531E72C162E0100AE3170 /* CharacteristicFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453531E62C162E0100AE3170 /* CharacteristicFormatter.swift */; };
+		453531E92C16329500AE3170 /* CharacteristicDetailTopTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453531E82C16329500AE3170 /* CharacteristicDetailTopTitleCell.swift */; };
+		453531EB2C1632E500AE3170 /* CharacteristicDetailTopTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 453531EA2C1632E500AE3170 /* CharacteristicDetailTopTitleCell.xib */; };
+		453531ED2C1636E900AE3170 /* CharacteristicDetailTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 453531EC2C1636E900AE3170 /* CharacteristicDetailTitleCell.xib */; };
+		453531EF2C1636F600AE3170 /* CharacteristicDetailTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453531EE2C1636F600AE3170 /* CharacteristicDetailTitleCell.swift */; };
+		453531F12C19E35600AE3170 /* BLEResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453531F02C19E35600AE3170 /* BLEResponse.swift */; };
+		453531FB2C1A19F600AE3170 /* CharacteristicDetailNavCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453531FA2C1A19F600AE3170 /* CharacteristicDetailNavCell.swift */; };
+		453531FD2C1A1A1500AE3170 /* CharacteristicDetailNavCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 453531FC2C1A1A1500AE3170 /* CharacteristicDetailNavCell.xib */; };
+		453531FF2C1A1F3900AE3170 /* CharacteristicDetailPropertyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453531FE2C1A1F3900AE3170 /* CharacteristicDetailPropertyCell.swift */; };
+		453532012C1A1F7600AE3170 /* CharacteristicDetailPropertyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 453532002C1A1F7600AE3170 /* CharacteristicDetailPropertyCell.xib */; };
+		453532042C1F24DD00AE3170 /* WriteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 453532032C1F24DD00AE3170 /* WriteView.xib */; };
+		453532062C1F24EB00AE3170 /* WriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453532052C1F24EB00AE3170 /* WriteView.swift */; };
+		453532082C1F295A00AE3170 /* WritePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453532072C1F295A00AE3170 /* WritePresenter.swift */; };
 		4568E9E52BF1485100BFF157 /* ServiceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4568E9E42BF1485100BFF157 /* ServiceData.swift */; };
 		45EE41FF2BF154DD0009D108 /* CharacteristicDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EE41FE2BF154DD0009D108 /* CharacteristicDetailView.swift */; };
 		45EE42032BF1559B0009D108 /* CharacteristicDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45EE42022BF1559B0009D108 /* CharacteristicDetailView.xib */; };
+		45F262F92C208F78006A410D /* PeripheralUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F262F82C208F78006A410D /* PeripheralUIModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,9 +65,27 @@
 		451995822BE4131300CEE3BA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		451995842BE4205900CEE3BA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		451995882BE4256300CEE3BA /* CharacteristicViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacteristicViewCell.swift; sourceTree = "<group>"; };
+		453531DD2C161C1100AE3170 /* CharacteristicDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacteristicDetailCell.swift; sourceTree = "<group>"; };
+		453531DF2C161CBC00AE3170 /* CharacteristicDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacteristicDetailCell.xib; sourceTree = "<group>"; };
+		453531E22C161D3200AE3170 /* CharacteristicDetailRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacteristicDetailRow.swift; sourceTree = "<group>"; };
+		453531E42C16263B00AE3170 /* CharacteristicDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacteristicDetailPresenter.swift; sourceTree = "<group>"; };
+		453531E62C162E0100AE3170 /* CharacteristicFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacteristicFormatter.swift; sourceTree = "<group>"; };
+		453531E82C16329500AE3170 /* CharacteristicDetailTopTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacteristicDetailTopTitleCell.swift; sourceTree = "<group>"; };
+		453531EA2C1632E500AE3170 /* CharacteristicDetailTopTitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacteristicDetailTopTitleCell.xib; sourceTree = "<group>"; };
+		453531EC2C1636E900AE3170 /* CharacteristicDetailTitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacteristicDetailTitleCell.xib; sourceTree = "<group>"; };
+		453531EE2C1636F600AE3170 /* CharacteristicDetailTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacteristicDetailTitleCell.swift; sourceTree = "<group>"; };
+		453531F02C19E35600AE3170 /* BLEResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEResponse.swift; sourceTree = "<group>"; };
+		453531FA2C1A19F600AE3170 /* CharacteristicDetailNavCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacteristicDetailNavCell.swift; sourceTree = "<group>"; };
+		453531FC2C1A1A1500AE3170 /* CharacteristicDetailNavCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacteristicDetailNavCell.xib; sourceTree = "<group>"; };
+		453531FE2C1A1F3900AE3170 /* CharacteristicDetailPropertyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacteristicDetailPropertyCell.swift; sourceTree = "<group>"; };
+		453532002C1A1F7600AE3170 /* CharacteristicDetailPropertyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacteristicDetailPropertyCell.xib; sourceTree = "<group>"; };
+		453532032C1F24DD00AE3170 /* WriteView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WriteView.xib; sourceTree = "<group>"; };
+		453532052C1F24EB00AE3170 /* WriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteView.swift; sourceTree = "<group>"; };
+		453532072C1F295A00AE3170 /* WritePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritePresenter.swift; sourceTree = "<group>"; };
 		4568E9E42BF1485100BFF157 /* ServiceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceData.swift; sourceTree = "<group>"; };
 		45EE41FE2BF154DD0009D108 /* CharacteristicDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacteristicDetailView.swift; sourceTree = "<group>"; };
 		45EE42022BF1559B0009D108 /* CharacteristicDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacteristicDetailView.xib; sourceTree = "<group>"; };
+		45F262F82C208F78006A410D /* PeripheralUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralUIModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				45070EB22BF0088C001F57D7 /* CharacteristicViewUIModel.swift */,
+				45F262F82C208F78006A410D /* PeripheralUIModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -116,6 +153,7 @@
 				45070EA82BEFF3F4001F57D7 /* Services */,
 				451995862BE4249500CEE3BA /* MainView */,
 				45EE41FD2BF154950009D108 /* CharacteristicDetailView */,
+				453532022C1F24AF00AE3170 /* WriteView */,
 			);
 			path = BLEOniOS;
 			sourceTree = "<group>";
@@ -162,11 +200,50 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		453531DC2C161BBC00AE3170 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				453531DD2C161C1100AE3170 /* CharacteristicDetailCell.swift */,
+				453531DF2C161CBC00AE3170 /* CharacteristicDetailCell.xib */,
+				453531E82C16329500AE3170 /* CharacteristicDetailTopTitleCell.swift */,
+				453531EA2C1632E500AE3170 /* CharacteristicDetailTopTitleCell.xib */,
+				453531EE2C1636F600AE3170 /* CharacteristicDetailTitleCell.swift */,
+				453531EC2C1636E900AE3170 /* CharacteristicDetailTitleCell.xib */,
+				453531FA2C1A19F600AE3170 /* CharacteristicDetailNavCell.swift */,
+				453531FC2C1A1A1500AE3170 /* CharacteristicDetailNavCell.xib */,
+				453531FE2C1A1F3900AE3170 /* CharacteristicDetailPropertyCell.swift */,
+				453532002C1A1F7600AE3170 /* CharacteristicDetailPropertyCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		453531E12C161D1800AE3170 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				453531E22C161D3200AE3170 /* CharacteristicDetailRow.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		453532022C1F24AF00AE3170 /* WriteView */ = {
+			isa = PBXGroup;
+			children = (
+				453532032C1F24DD00AE3170 /* WriteView.xib */,
+				453532052C1F24EB00AE3170 /* WriteView.swift */,
+				453532072C1F295A00AE3170 /* WritePresenter.swift */,
+			);
+			path = WriteView;
+			sourceTree = "<group>";
+		};
 		45EE41FD2BF154950009D108 /* CharacteristicDetailView */ = {
 			isa = PBXGroup;
 			children = (
+				453531E12C161D1800AE3170 /* Model */,
+				453531DC2C161BBC00AE3170 /* Cells */,
+				453531E42C16263B00AE3170 /* CharacteristicDetailPresenter.swift */,
 				45EE41FE2BF154DD0009D108 /* CharacteristicDetailView.swift */,
 				45EE42022BF1559B0009D108 /* CharacteristicDetailView.xib */,
+				453531E62C162E0100AE3170 /* CharacteristicFormatter.swift */,
 			);
 			path = CharacteristicDetailView;
 			sourceTree = "<group>";
@@ -229,10 +306,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				453531ED2C1636E900AE3170 /* CharacteristicDetailTitleCell.xib in Resources */,
 				451995752BE406C600CEE3BA /* LaunchScreen.storyboard in Resources */,
 				45EE42032BF1559B0009D108 /* CharacteristicDetailView.xib in Resources */,
 				451995802BE4088A00CEE3BA /* MainViewController.xib in Resources */,
 				451995722BE406C600CEE3BA /* Assets.xcassets in Resources */,
+				453532042C1F24DD00AE3170 /* WriteView.xib in Resources */,
+				453531E02C161CBC00AE3170 /* CharacteristicDetailCell.xib in Resources */,
+				453532012C1A1F7600AE3170 /* CharacteristicDetailPropertyCell.xib in Resources */,
+				453531FD2C1A1A1500AE3170 /* CharacteristicDetailNavCell.xib in Resources */,
+				453531EB2C1632E500AE3170 /* CharacteristicDetailTopTitleCell.xib in Resources */,
 				45070E9D2BEFEA73001F57D7 /* CharacteristicViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -244,21 +327,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				453531E92C16329500AE3170 /* CharacteristicDetailTopTitleCell.swift in Sources */,
 				45070EAA2BEFF412001F57D7 /* BluetoothService.swift in Sources */,
 				451995892BE4256300CEE3BA /* CharacteristicViewCell.swift in Sources */,
+				453531E52C16263B00AE3170 /* CharacteristicDetailPresenter.swift in Sources */,
 				45070EA72BEFF3E3001F57D7 /* ConnectionStatus.swift in Sources */,
 				45EE41FF2BF154DD0009D108 /* CharacteristicDetailView.swift in Sources */,
+				453531E72C162E0100AE3170 /* CharacteristicFormatter.swift in Sources */,
 				451995852BE4205900CEE3BA /* Constants.swift in Sources */,
+				453532062C1F24EB00AE3170 /* WriteView.swift in Sources */,
 				45070EB02BF00844001F57D7 /* MainViewFormatter.swift in Sources */,
 				4519957E2BE4085E00CEE3BA /* MainViewController.swift in Sources */,
+				453531FF2C1A1F3900AE3170 /* CharacteristicDetailPropertyCell.swift in Sources */,
+				453532082C1F295A00AE3170 /* WritePresenter.swift in Sources */,
 				4568E9E52BF1485100BFF157 /* ServiceData.swift in Sources */,
+				453531EF2C1636F600AE3170 /* CharacteristicDetailTitleCell.swift in Sources */,
 				45070EAC2BEFF694001F57D7 /* CharacteristicModel.swift in Sources */,
+				453531DE2C161C1100AE3170 /* CharacteristicDetailCell.swift in Sources */,
 				451995692BE406C300CEE3BA /* AppDelegate.swift in Sources */,
+				453531E32C161D3200AE3170 /* CharacteristicDetailRow.swift in Sources */,
 				45070EAE2BEFFEAC001F57D7 /* MainViewPresenter.swift in Sources */,
 				45070EB32BF0088C001F57D7 /* CharacteristicViewUIModel.swift in Sources */,
 				4519956B2BE406C300CEE3BA /* SceneDelegate.swift in Sources */,
 				451995832BE4131300CEE3BA /* Extensions.swift in Sources */,
-				45070EA32BEFF2DB001F57D7 /* RotaryPositionValue.swift in Sources */,
+				453531F12C19E35600AE3170 /* BLEResponse.swift in Sources */,
+				453531FB2C1A19F600AE3170 /* CharacteristicDetailNavCell.swift in Sources */,
+				45F262F92C208F78006A410D /* PeripheralUIModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
