@@ -92,3 +92,39 @@ extension UITableView {
         }
     }
 }
+
+// MARK: - UINavigationController
+extension UINavigationController {
+
+    func popViewController(animated: Bool = true, completion: @escaping () -> Void) {
+        CATransaction.begin()
+        CATransaction.setCompletionBlock(completion)
+        popViewController(animated: animated)
+        CATransaction.commit()
+    }
+
+    func pushViewController(_ viewController: UIViewController, animated: Bool = true, completion: @escaping () -> Void) {
+        CATransaction.begin()
+        CATransaction.setCompletionBlock(completion)
+        pushViewController(viewController, animated: animated)
+        CATransaction.commit()
+    }
+}
+
+// MARK: - UIColor
+extension UIColor {
+    var rgba: RGBColor {
+        var red: CGFloat = 0
+        var green: CGFloat = 0
+        var blue: CGFloat = 0
+        var alpha: CGFloat = 0
+        getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+        
+        return RGBColor(r: Int(red*255), g: Int(green*255), b: Int(blue*255))
+    }
+}
+
+// MARK: - NSNotification
+extension Notification.Name {
+    static let updateCharacteristics = Notification.Name("CB.Characteristic.Update")
+}

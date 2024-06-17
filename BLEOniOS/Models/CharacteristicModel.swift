@@ -14,14 +14,12 @@ class CharacteristicData: Identifiable {
          cbService: ServiceData,
          description: String,
          isReadOnly: Bool,
-         willNotify: Bool,
-         value: String? = nil) {
+         willNotify: Bool) {
         self.description = description
         self.isReadOnly = isReadOnly
         self.willNotify = willNotify
         self.cbCharacteristic = cbCharacteristic
         self.cbService = cbService
-        self.value = value
     }
     
     let cbCharacteristic: CBCharacteristic
@@ -30,11 +28,31 @@ class CharacteristicData: Identifiable {
     let isReadOnly: Bool
     let willNotify: Bool
     
+    var response: BLEResponse?
+    
+    var value: String? {
+        guard let response else { return nil }
+        
+        switch cbCharacteristic.uuid {
+        case DeviceCharacteristic.color.getUUID():
+            return response.getRGBString()
+            
+        case DeviceCharacteristic.mode.getUUID():
+            
+            return response.currentMode?.getStringValue()
+        case DeviceCharacteristic.rotaryPosition.getUUID():
+            guard let steps = response.steps else { return nil }
+            
+            return String(steps)
+            
+        default:
+            return nil
+        }
+    }
+    
     var id: CBUUID {
         cbCharacteristic.uuid
     }
-    
-    var value: String?
     
     var uuidString: String {
         id.uuidString

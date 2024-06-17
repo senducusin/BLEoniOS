@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct PeripheralUIModel {
+    let peripheralIdentity: PeripheralIdentity?
+    let servicesCount: Int
+    let characteristicRows: [CharacteristicRow]
+}

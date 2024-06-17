@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Combine
 
 protocol MainViewPresenterProtocol {
     func viewDidLoad()
@@ -42,13 +41,19 @@ class MainViewPresenter: MainViewPresenterProtocol {
 extension MainViewPresenter: BluetoothServiceDelegate {
     func updateCharacteristicData(with characteristicData: [CharacteristicData]) {
         let rows = formatter.convert(characteristicData)
-        controller.updateSections(with: rows)
+        
+        let model = PeripheralUIModel(peripheralIdentity: bleService.peripheral,
+                                      servicesCount: bleService.services.count,
+                                      characteristicRows: rows)
+        
+        controller.updateSections(with: model)
     }
     
-    func didSelectRow(with model: CharacteristicViewUIModel) {
-//        topvi
+    func didSelectRow(with model: CharacteristicViewUIModel) { 
+        guard let selectedCharacteristic = bleService.characteristicData
+            .first(where: { $0.id.uuidString == model.characteristicUuidString})
+        else { return }
         
-        
-//        self.navigationController?.pushViewController(controller, animated: true)
+        controller.navigateToDetails(with: selectedCharacteristic)
     }
 }

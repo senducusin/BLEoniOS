@@ -14,6 +14,9 @@ struct ColorContext {
     static let primaryText = UIColor(red: 44/255, green: 62/255, blue: 80/255, alpha: 1)
     static let secondaryText = UIColor(red: 149/255, green: 165/255, blue: 166/255, alpha: 1)
     static let tertiaryText = UIColor(red: 127/255, green: 140/255, blue: 141/255, alpha: 1)
+    
+    static let lightGray = UIColor(red: 236/255, green: 240/255, blue: 241/255, alpha: 1)
+    static let darkText = UIColor(red: 44/255, green: 62/255, blue: 80/255, alpha: 1)
 }
 
 struct StringContext {
@@ -21,6 +24,8 @@ struct StringContext {
     static let disabled = "Disabled"
     static let inputService = "Input"
     static let outputService = "Output"
+    static let trueStatement = "True"
+    static let falseStatement = "False"
     
     struct Separator {
         static let dash: Character = "-"
@@ -65,6 +70,14 @@ enum DeviceCharacteristic: String {
 }
 
 extension DeviceCharacteristic {
+    func getWriteTemplate(value: Int) -> String {
+        """
+        {
+         "mode": \(value)
+        }
+        """
+    }
+    
     func getUUID() -> CBUUID {
         CBUUID(string: self.rawValue)
     }
@@ -92,4 +105,10 @@ extension DeviceCharacteristic {
             DeviceCharacteristic.mode.getUUID()
         ]
     }
+}
+
+// MARK: - Peripheral
+struct PeripheralIdentity {
+    let localName: String?
+    let name: String?
 }

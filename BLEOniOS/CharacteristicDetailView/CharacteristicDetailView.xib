@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CharacteristicDetailView" customModule="BLEOniOS" customModuleProvider="target">
             <connections>
+                <outlet property="tableView" destination="MyJ-tV-6Uh" id="rGS-qm-rq3"/>
                 <outlet property="view" destination="nq2-am-jY7" id="aNY-ix-rgV"/>
             </connections>
         </placeholder>
@@ -18,8 +19,20 @@
         <view contentMode="scaleToFill" id="nq2-am-jY7">
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="MyJ-tV-6Uh">
+                    <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="uEs-Di-AJ3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="uEs-Di-AJ3" firstAttribute="trailing" secondItem="MyJ-tV-6Uh" secondAttribute="trailing" id="2vw-xf-Az4"/>
+                <constraint firstItem="MyJ-tV-6Uh" firstAttribute="top" secondItem="uEs-Di-AJ3" secondAttribute="top" id="89y-6O-wH8"/>
+                <constraint firstItem="MyJ-tV-6Uh" firstAttribute="leading" secondItem="nq2-am-jY7" secondAttribute="leading" id="kvG-uX-Z9c"/>
+                <constraint firstItem="uEs-Di-AJ3" firstAttribute="bottom" secondItem="MyJ-tV-6Uh" secondAttribute="bottom" id="nrM-NB-J7s"/>
+            </constraints>
             <point key="canvasLocation" x="130" y="-92"/>
         </view>
     </objects>

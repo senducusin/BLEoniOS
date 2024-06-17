@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,8 +16,51 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="p21-hz-5Bf" id="Vrq-id-IU1">
                 <rect key="frame" x="0.0" y="0.0" width="393" height="158"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oCE-VB-BWg">
+                        <rect key="frame" x="12" y="8" width="80" height="140"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VD2-LQ-Q8D">
+                        <rect key="frame" x="100" y="8" width="281" height="140"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FW3-gM-aGg">
+                        <rect key="frame" x="8" y="156" width="377" height="1"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="4yy-mB-YPT"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="VD2-LQ-Q8D" secondAttribute="trailing" constant="12" id="DOc-Zs-kfx"/>
+                    <constraint firstItem="oCE-VB-BWg" firstAttribute="top" secondItem="Vrq-id-IU1" secondAttribute="top" constant="8" id="GrA-Ug-Mnr"/>
+                    <constraint firstItem="FW3-gM-aGg" firstAttribute="top" secondItem="oCE-VB-BWg" secondAttribute="bottom" constant="8" id="Jt4-UW-pNa"/>
+                    <constraint firstItem="FW3-gM-aGg" firstAttribute="leading" secondItem="Vrq-id-IU1" secondAttribute="leading" constant="8" id="MoA-WD-1hv"/>
+                    <constraint firstItem="VD2-LQ-Q8D" firstAttribute="top" secondItem="Vrq-id-IU1" secondAttribute="top" constant="8" id="PZA-kT-Hdn"/>
+                    <constraint firstAttribute="trailing" secondItem="FW3-gM-aGg" secondAttribute="trailing" constant="8" id="VuZ-11-auz"/>
+                    <constraint firstItem="oCE-VB-BWg" firstAttribute="leading" secondItem="Vrq-id-IU1" secondAttribute="leading" constant="8" id="WgY-gj-MGh"/>
+                    <constraint firstAttribute="bottom" secondItem="FW3-gM-aGg" secondAttribute="bottom" constant="1" id="jb0-bX-BA7"/>
+                    <constraint firstItem="FW3-gM-aGg" firstAttribute="top" secondItem="VD2-LQ-Q8D" secondAttribute="bottom" constant="8" id="npk-Rs-stY"/>
+                    <constraint firstItem="VD2-LQ-Q8D" firstAttribute="leading" secondItem="oCE-VB-BWg" secondAttribute="trailing" constant="8" id="r3Y-xh-1NX"/>
+                </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="keyLabel" destination="oCE-VB-BWg" id="ej1-qP-NES"/>
+                <outlet property="separatorView" destination="FW3-gM-aGg" id="Nqg-Ch-0CS"/>
+                <outlet property="valueLabel" destination="VD2-LQ-Q8D" id="Dd8-YS-aAo"/>
+            </connections>
             <point key="canvasLocation" x="26.717557251908396" y="-16.901408450704228"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

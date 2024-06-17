@@ -9,18 +9,18 @@ import UIKit
 
 class CharacteristicDetailTopTitleCell: UITableViewCell {
     
-    @IBOutlet private weak var idLabel: UILabel!
+    @IBOutlet private weak var topTitle: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        backgroundColor = .white
-        idLabel.numberOfLines = 1
-        idLabel.font = UIFont.systemFont(ofSize: 12, weight: .regular)
-        idLabel.textColor = ColorContext.lightBlue
+        backgroundColor = ColorContext.lightGray
+        topTitle.numberOfLines = 1
+        topTitle.font = UIFont.systemFont(ofSize: 12, weight: .regular)
+        topTitle.textColor = ColorContext.darkText
     }
     
     func set(value: String) {
-        idLabel.text = value
+        topTitle.text = value
     }
 }
